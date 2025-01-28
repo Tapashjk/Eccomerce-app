@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+
+    <div class="max-w-7xl mx-auto px-4 py-24">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold mb-8">Checkout</h1>
+            
+            <form id="checkout-form" class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-xl font-bold mb-4">Shipping Information</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name" required 
+                               class="checkout-input border rounded px-4 py-2 w-full">
+                        <input type="text" placeholder="Last Name" required 
+                               class="checkout-input border rounded px-4 py-2 w-full">
+                        <input type="email" placeholder="Email" required 
+                               class="checkout-input border rounded px-4 py-2 w-full">
+                        <input type="tel" placeholder="Phone" required 
+                               class="checkout-input border rounded px-4 py-2 w-full">
+                        <textarea placeholder="Shipping Address" required 
+                               class="checkout-input border rounded px-4 py-2 w-full md:col-span-2" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-xl font-bold mb-4">Payment Details</h2>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Card Number" required 
+                               class="checkout-input border rounded px-4 py-2 w-full">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <input type="text" placeholder="MM/YY" required 
+                                   class="checkout-input border rounded px-4 py-2 w-full">
+                            <input type="text" placeholder="CVC" required 
+                                   class="checkout-input border rounded px-4 py-2 w-full">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 font-semibold">
+                    Complete Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Process payment here (would need backend in real implementation)
+            localStorage.removeItem('cart');
+            window.location.href = 'order.html';
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
