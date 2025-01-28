@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+
+    <div class="max-w-7xl mx-auto px-4 py-24">
+        <h1 class="text-3xl font-bold mb-8">Shopping Cart</h1>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 space-y-4">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h2 class="text-xl font-bold mb-4">Order Summary</h2>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Subtotal (3 items)</span>
+                            <span class="font-semibold">$897.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Shipping</span>
+                            <span class="font-semibold">$15.00</span>
+                        </div>
+                        <div class="flex justify-between border-t pt-2">
+                            <span class="font-bold">Total</span>
+                            <span class="font-bold text-blue-600">$912.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-4 rounded-lg shadow h-fit">
+                <h2 class="text-xl font-bold mb-4">Checkout</h2>
+                <a href="checkout.html" class="block w-full bg-blue-600 text-white text-center py-3 rounded hover:bg-blue-700">
+                    Proceed to Checkout
+                </a>
+                <p class="text-sm text-gray-600 mt-4">Secure checkout with SSL encryption</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load cart items
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.getElementById('cart-items');
+
+        cartItems.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'bg-white p-4 rounded-lg shadow flex items-start gap-4';
+            cartItem.innerHTML = `
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+                     class="w-24 h-24 object-contain">
+                <div class="flex-1">
+                    <h3 class="font-semibold">${item.name}</h3>
+                    <div class="text-gray-600">$${item.price}</div>
+                    <div class="flex items-center gap-4 mt-2">
+                        <input type="number" value="${item.quantity}" min="1" 
+                               class="border rounded px-2 py-1 w-20">
+                        <button class="text-red-600 hover:text-red-700">Remove</button>
+                    </div>
+                </div>
+            `;
+            cartContainer.appendChild(cartItem);
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
