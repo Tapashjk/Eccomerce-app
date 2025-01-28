@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+
+    <div class="max-w-7xl mx-auto px-4 py-24">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+                     class="w-full h-96 object-contain" alt="Product">
+            </div>
+            <div class="space-y-6">
+                <h1 class="text-4xl font-bold">Wireless Headphones Pro X3</h1>
+                <div class="text-2xl font-bold text-blue-600">$299.99</div>
+                <div class="flex items-center space-x-2">
+                    <div class="text-yellow-400">★★★★☆</div>
+                    <span class="text-gray-600">(128 Reviews)</span>
+                </div>
+                <p class="text-gray-700">Premium noise-canceling wireless headphones with 40-hour battery life...</p>
+                
+                <div class="flex items-center space-x-4">
+                    <input type="number" min="1" value="1" class="border rounded px-4 py-2 w-20" id="quantity">
+                    <button onclick="addToCart('p123', 'Wireless Headphones Pro X3', 299.99)" 
+                            class="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="mt-8 space-y-4">
+                    <div class="border-t pt-4">
+                        <h3 class="font-bold text-lg mb-2">Specifications</h3>
+                        <ul class="space-y-2">
+                            <li><span class="font-semibold">Battery Life:</span> 40 hours</li>
+                            <li><span class="font-semibold">Connectivity:</span> Bluetooth 5.0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

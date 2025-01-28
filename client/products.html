@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - TechShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .price-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3B82F6;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .star-rating input:checked ~ label {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation (Same as index.html) -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <!-- Copy navigation from index.html -->
+    </nav>
+
+    <!-- Product Listing Section -->
+    <div class="max-w-7xl mx-auto px-4 py-24">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filters Sidebar -->
+            <div class="w-full md:w-64 space-y-6">
+                <!-- Category Filter -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold mb-3">Categories</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter" value="electronics">
+                                <span class="ml-2">Electronics</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="category-filter" value="accessories">
+                                <span class="ml-2">Accessories</span>
+                            </label>
+                        </li>
+                        <!-- Add more categories -->
+                    </ul>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold mb-3">Price Range</h3>
+                    <input type="range" id="price-range" min="0" max="1000" value="1000" 
+                           class="w-full price-range">
+                    <div class="flex justify-between text-sm">
+                        <span>$0</span>
+                        <span>$1000</span>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold mb-3">Rating</h3>
+                    <div class="star-rating space-y-2">
+                        <div>
+                            <input type="radio" id="rating5" name="rating" class="hidden" value="5">
+                            <label for="rating5" class="text-yellow-400 cursor-pointer">
+                                ★★★★★
+                            </label>
+                        </div>
+                        <!-- Add more rating options -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid and Sorting -->
+            <div class="flex-1">
+                <!-- Sorting Options -->
+                <div class="bg-white p-4 rounded-lg shadow mb-6">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">Showing 120 results</span>
+                        <select id="sort-by" class="border rounded px-3 py-2">
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="popularity">Popularity</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden"
+                         data-category="electronics" data-price="299" data-rating="4">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+                                 class="w-full h-48 object-cover" alt="Product">
+                            <div class="product-actions absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-4 opacity-0 transform translate-y-4 transition-all duration-300">
+                                <button class="w-full bg-white text-black py-2 rounded hover:bg-gray-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Wireless Headphones</h3>
+                            <div class="flex items-center mb-2">
+                                <div class="text-yellow-400">
+                                    ★★★★☆
+                                </div>
+                                <span class="text-sm text-gray-600 ml-2">(128 reviews)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600 font-bold text-xl">$299</span>
+                                <span class="text-sm text-gray-500 line-through">$399</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat product cards with different data attributes -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-8 flex justify-center">
+                    <nav class="flex space-x-2">
+                        <a href="#" class="px-4 py-2 bg-white rounded hover:bg-gray-100">1</a>
+                        <a href="#" class="px-4 py-2 bg-white rounded hover:bg-gray-100">2</a>
+                        <a href="#" class="px-4 py-2 bg-white rounded hover:bg-gray-100">3</a>
+                        <span class="px-4 py-2">...</span>
+                        <a href="#" class="px-4 py-2 bg-white rounded hover:bg-gray-100">10</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-900 text-white">
+        <!-- Copy footer from index.html -->
+    </footer>
+
+    <script>
+        // Filtering and Sorting Logic
+        const products = document.querySelectorAll('.product-card');
+        const filters = {
+            categories: [],
+            maxPrice: 1000,
+            minRating: 0
+        };
+
+        // Category Filter
+        document.querySelectorAll('.category-filter').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                if(e.target.checked) {
+                    filters.categories.push(e.target.value);
+                } else {
+                    filters.categories = filters.categories.filter(cat => cat !== e.target.value);
+                }
+                applyFilters();
+            });
+        });
+
+        // Price Filter
+        document.getElementById('price-range').addEventListener('input', (e) => {
+            filters.maxPrice = parseInt(e.target.value);
+            document.querySelector('.price-range + div span:last-child').textContent = `$${filters.maxPrice}`;
+            applyFilters();
+        });
+
+        // Rating Filter
+        document.querySelectorAll('.star-rating input').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                filters.minRating = parseInt(e.target.value);
+                applyFilters();
+            });
+        });
+
+        // Sorting
+        document.getElementById('sort-by').addEventListener('change', (e) => {
+            const sortMethod = e.target.value;
+            sortProducts(sortMethod);
+        });
+
+        function applyFilters() {
+            products.forEach(product => {
+                const category = product.dataset.category;
+                const price = parseInt(product.dataset.price);
+                const rating = parseInt(product.dataset.rating);
+
+                const categoryMatch = filters.categories.length === 0 || 
+                                    filters.categories.includes(category);
+                const priceMatch = price <= filters.maxPrice;
+                const ratingMatch = rating >= filters.minRating;
+
+                if(categoryMatch && priceMatch && ratingMatch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function sortProducts(method) {
+            const container = document.querySelector('.grid');
+            const items = Array.from(products);
+
+            items.sort((a, b) => {
+                const aPrice = parseInt(a.dataset.price);
+                const bPrice = parseInt(b.dataset.price);
+                const aRating = parseInt(a.dataset.rating);
+                const bRating = parseInt(b.dataset.rating);
+
+                switch(method) {
+                    case 'price_asc':
+                        return aPrice - bPrice;
+                    case 'price_desc':
+                        return bPrice - aPrice;
+                    case 'rating':
+                        return bRating - aRating;
+                    case 'popularity':
+                        // Add actual popularity data attribute for real implementation
+                        return 0;
+                    default:
+                        return 0;
+                }
+            });
+
+            items.forEach(item => container.appendChild(item));
+        }
+
+        // Initialize cart functionality (same as index.html)
+        // Copy cart functionality from index.html
+    </script>
+</body>
+</html>

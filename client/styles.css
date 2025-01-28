@@ -1,0 +1,29 @@
+/* Shared Styles */
+.product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.price-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #3B82F6;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.loader {
+    border-top-color: #3B82F6;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.checkout-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
